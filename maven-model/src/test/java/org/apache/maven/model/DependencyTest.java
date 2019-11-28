@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Dependency}.
  *
  * @author Benjamin Bentmann
  */
-public class DependencyTest
-    extends TestCase
+@DisplayName( "Dependency" )
+class DependencyTest implements ModelTestInterface< Dependency >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Dependency().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Dependency().equals( null ) );
-
-        new Dependency().equals( new Dependency() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Dependency thing = new Dependency();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Dependency().toString() );
-    }
 
 }

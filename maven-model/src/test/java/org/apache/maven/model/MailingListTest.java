@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code MailingList}.
  *
  * @author Benjamin Bentmann
  */
-public class MailingListTest
-    extends TestCase
+@DisplayName( "MailingList" )
+class MailingListTest implements ModelTestInterface< MailingList >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new MailingList().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new MailingList().equals( null ) );
-
-        new MailingList().equals( new MailingList() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        MailingList thing = new MailingList();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new MailingList().toString() );
-    }
 
 }

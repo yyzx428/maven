@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code ActivationFile}.
  *
  * @author Benjamin Bentmann
  */
-public class ActivationFileTest
-    extends TestCase
+@DisplayName( "ActivationFile" )
+class ActivationFileTest implements ModelTestInterface< ActivationFile >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new ActivationFile().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new ActivationFile().equals( null ) );
-
-        new ActivationFile().equals( new ActivationFile() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        ActivationFile thing = new ActivationFile();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new ActivationFile().toString() );
-    }
-
 }
+

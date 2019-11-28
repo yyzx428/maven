@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Activation}.
  *
  * @author Benjamin Bentmann
  */
-public class ActivationTest
-    extends TestCase
+@DisplayName( "Activation" )
+class ActivationTest implements ModelTestInterface< Activation >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Activation().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Activation().equals( null ) );
-
-        new Activation().equals( new Activation() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Activation thing = new Activation();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Activation().toString() );
-    }
-
 }
+

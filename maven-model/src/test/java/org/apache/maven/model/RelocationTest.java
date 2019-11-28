@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Relocation}.
  *
  * @author Benjamin Bentmann
  */
-public class RelocationTest
-    extends TestCase
+@DisplayName( "Relocation" )
+class RelocationTest implements ModelTestInterface< Relocation >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Relocation().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Relocation().equals( null ) );
-
-        new Relocation().equals( new Relocation() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Relocation thing = new Relocation();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Relocation().toString() );
-    }
-
 }

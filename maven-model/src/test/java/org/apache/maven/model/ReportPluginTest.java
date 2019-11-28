@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code ReportPlugin}.
  *
  * @author Benjamin Bentmann
  */
-public class ReportPluginTest
-    extends TestCase
+@DisplayName( "ReportPlugin" )
+class ReportPluginTest implements ModelTestInterface< ReportPlugin >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new ReportPlugin().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new ReportPlugin().equals( null ) );
-
-        new ReportPlugin().equals( new ReportPlugin() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        ReportPlugin thing = new ReportPlugin();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new ReportPlugin().toString() );
-    }
-
 }

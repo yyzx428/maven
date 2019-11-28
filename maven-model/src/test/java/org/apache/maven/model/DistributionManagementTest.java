@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code DistributionManagement}.
  *
  * @author Benjamin Bentmann
  */
-public class DistributionManagementTest
-    extends TestCase
+@DisplayName( "DistributionManagement" )
+class DistributionManagementTest implements ModelTestInterface< DistributionManagement >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new DistributionManagement().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new DistributionManagement().equals( null ) );
-
-        new DistributionManagement().equals( new DistributionManagement() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        DistributionManagement thing = new DistributionManagement();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new DistributionManagement().toString() );
-    }
 
 }

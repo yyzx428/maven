@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Exclusion}.
  *
  * @author Benjamin Bentmann
  */
-public class ExclusionTest
-    extends TestCase
+@DisplayName( "Exclusion" )
+class ExclusionTest implements ModelTestInterface< Exclusion >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Exclusion().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Exclusion().equals( null ) );
-
-        new Exclusion().equals( new Exclusion() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Exclusion thing = new Exclusion();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Exclusion().toString() );
-    }
 
 }

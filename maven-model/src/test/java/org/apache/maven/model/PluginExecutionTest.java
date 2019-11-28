@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code PluginExecution}.
  *
  * @author Benjamin Bentmann
  */
-public class PluginExecutionTest
-    extends TestCase
+@DisplayName( "PluginExecution" )
+class PluginExecutionTest implements ModelTestInterface< PluginExecution >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new PluginExecution().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new PluginExecution().equals( null ) );
-
-        new PluginExecution().equals( new PluginExecution() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        PluginExecution thing = new PluginExecution();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new PluginExecution().toString() );
-    }
 
 }

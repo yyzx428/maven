@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Prerequisites}.
  *
  * @author Benjamin Bentmann
  */
-public class PrerequisitesTest
-    extends TestCase
+@DisplayName( "Prerequisites" )
+class PrerequisitesTest implements ModelTestInterface< Prerequisites >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Prerequisites().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Prerequisites().equals( null ) );
-
-        new Prerequisites().equals( new Prerequisites() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Prerequisites thing = new Prerequisites();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Prerequisites().toString() );
-    }
-
 }

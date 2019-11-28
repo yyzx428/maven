@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code License}.
  *
  * @author Benjamin Bentmann
  */
-public class LicenseTest
-    extends TestCase
+@DisplayName( "License" )
+class LicenseTest implements ModelTestInterface< License >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new License().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new License().equals( null ) );
-
-        new License().equals( new License() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        License thing = new License();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new License().toString() );
-    }
 
 }

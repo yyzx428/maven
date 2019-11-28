@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Profile}.
  *
  * @author Benjamin Bentmann
  */
-public class ProfileTest
-    extends TestCase
+@DisplayName( "Profile" )
+class ProfileTest implements ModelTestInterface< Profile >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Profile().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Profile().equals( null ) );
-
-        new Profile().equals( new Profile() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Profile thing = new Profile();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Profile().toString() );
-    }
 
 }

@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Reporting}.
  *
  * @author Benjamin Bentmann
  */
-public class ReportingTest
-    extends TestCase
+@DisplayName( "Reporting" )
+class ReportingTest implements ModelTestInterface< Reporting >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Reporting().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Reporting().equals( null ) );
-
-        new Reporting().equals( new Reporting() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Reporting thing = new Reporting();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Reporting().toString() );
-    }
-
 }

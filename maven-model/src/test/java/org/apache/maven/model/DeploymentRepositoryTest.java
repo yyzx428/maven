@@ -19,38 +19,15 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code DeploymentRepository}.
  *
  * @author Benjamin Bentmann
  */
-public class DeploymentRepositoryTest
-    extends TestCase
+@DisplayName( "DeploymentRepository" )
+class DeploymentRepositoryTest implements ModelTestInterface< DeploymentRepository >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new DeploymentRepository().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new DeploymentRepository().equals( null ) );
-
-        new DeploymentRepository().equals( new DeploymentRepository() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        DeploymentRepository thing = new DeploymentRepository();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new DeploymentRepository().toString() );
-    }
 
 }

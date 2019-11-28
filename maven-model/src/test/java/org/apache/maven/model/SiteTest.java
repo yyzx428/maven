@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Site}.
  *
  * @author Benjamin Bentmann
  */
-public class SiteTest
-    extends TestCase
+@DisplayName( "Site" )
+class SiteTest implements ModelTestInterface< Site >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Site().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Site().equals( null ) );
-
-        new Site().equals( new Site() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Site thing = new Site();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Site().toString() );
-    }
-
 }

@@ -19,38 +19,17 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Scm}.
  *
  * @author Benjamin Bentmann
  */
-public class ScmTest
-    extends TestCase
+@DisplayName( "Scm" )
+class ScmTest implements ModelTestInterface< Scm >
 {
 
-    public void testHashCodeNullSafe()
-    {
-        new Scm().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Scm().equals( null ) );
-
-        new Scm().equals( new Scm() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Scm thing = new Scm();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Scm().toString() );
-    }
-
 }
+
+

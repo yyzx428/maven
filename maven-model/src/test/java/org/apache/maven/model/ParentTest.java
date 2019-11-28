@@ -19,38 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  * Tests {@code Parent}.
  *
  * @author Benjamin Bentmann
  */
-public class ParentTest
-    extends TestCase
+@DisplayName( "Parent" )
+class ParentTest implements ModelTestInterface< Parent >
 {
-
-    public void testHashCodeNullSafe()
-    {
-        new Parent().hashCode();
-    }
-
-    public void testEqualsNullSafe()
-    {
-        assertFalse( new Parent().equals( null ) );
-
-        new Parent().equals( new Parent() );
-    }
-
-    public void testEqualsIdentity()
-    {
-        Parent thing = new Parent();
-        assertTrue( thing.equals( thing ) );
-    }
-
-    public void testToStringNullSafe()
-    {
-        assertNotNull( new Parent().toString() );
-    }
-
 }
