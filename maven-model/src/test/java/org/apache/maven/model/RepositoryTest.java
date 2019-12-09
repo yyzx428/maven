@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Repository}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Repository" )
 class RepositoryTest implements ModelTestInterface< Repository >
 {
 }

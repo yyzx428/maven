@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code DependencyManagement}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "DependencyManagement" )
 class DependencyManagementTest implements ModelTestInterface< DependencyManagement >
 {
 

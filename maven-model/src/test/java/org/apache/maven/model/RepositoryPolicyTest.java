@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code RepositoryPolicy}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "RepositoryPolicy" )
 class RepositoryPolicyTest implements ModelTestInterface< RepositoryPolicy >
 {
 

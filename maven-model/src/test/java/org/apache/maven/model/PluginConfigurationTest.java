@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code PluginConfiguration}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "PluginConfiguration" )
 class PluginConfigurationTest implements ModelTestInterface< PluginConfiguration >
 {
 

@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Extension}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Extension" )
 class ExtensionTest implements ModelTestInterface< Extension >
 {
 

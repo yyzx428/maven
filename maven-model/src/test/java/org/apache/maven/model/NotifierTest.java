@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Notifier}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Notifier" )
 class NotifierTest implements ModelTestInterface< Notifier >
 {
 }

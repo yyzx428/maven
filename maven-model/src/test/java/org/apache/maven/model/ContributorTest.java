@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Contributor}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Contributore" )
 class ContributorTest implements ModelTestInterface< Contributor >
 {
 }

@@ -19,12 +19,14 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
+@DisplayNameGeneration( ModelTestInterface.NameGenerator.class )
 interface ModelTestInterface< T >
 {
     @SuppressWarnings( "unchecked" )
@@ -34,21 +36,18 @@ interface ModelTestInterface< T >
     }
 
     @Test
-    @DisplayName( "hashCode should not fail with null." )
     default void hashCodeNullSafe()
     {
         assertThatCode( () -> createNewInstance( this.getClass() ).hashCode() ).doesNotThrowAnyException();
     }
 
     @Test
-    @DisplayName( "equals should not fail with null." )
     default void equalsNullSafe() throws ReflectiveOperationException
     {
         assertThat( createNewInstance( this.getClass() ).equals( null ) ).isFalse();
     }
 
     @Test
-    @DisplayName( "equals should result in false for two different instances." )
     default void equalsSameToBeFalse() throws ReflectiveOperationException
     {
         T firstInstance = createNewInstance( this.getClass() );
@@ -57,9 +56,20 @@ interface ModelTestInterface< T >
     }
 
     @Test
-    @DisplayName( "toString should not be null." )
     default void toStringNullSafe() throws ReflectiveOperationException
     {
         assertThat( createNewInstance( this.getClass() ).toString() ).isNotNull();
+    }
+
+    /**
+     * The @DisplayName will be the test class name without the trailing "Test".
+     */
+    class NameGenerator extends DisplayNameGenerator.Standard
+    {
+        public String generateDisplayNameForClass( Class<?> testClass )
+        {
+            String name = testClass.getSimpleName();
+            return name.substring(0, name.length() - 4);
+        }
     }
 }

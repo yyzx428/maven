@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code License}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "License" )
 class LicenseTest implements ModelTestInterface< License >
 {
 

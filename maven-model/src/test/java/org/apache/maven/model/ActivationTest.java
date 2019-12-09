@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Activation}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Activation" )
 class ActivationTest implements ModelTestInterface< Activation >
 {
 }

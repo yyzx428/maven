@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Organization}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Organization" )
 class OrganizationTest implements ModelTestInterface< Organization >
 {
 }

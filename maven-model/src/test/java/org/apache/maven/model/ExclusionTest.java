@@ -19,14 +19,11 @@ package org.apache.maven.model;
  * under the License.
  */
 
-import org.junit.jupiter.api.DisplayName;
-
 /**
  * Tests {@code Exclusion}.
  *
  * @author Benjamin Bentmann
  */
-@DisplayName( "Exclusion" )
 class ExclusionTest implements ModelTestInterface< Exclusion >
 {
 
