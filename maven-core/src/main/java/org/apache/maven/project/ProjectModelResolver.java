@@ -49,7 +49,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-
 /**
  * A model resolver to assist building of projects. This resolver gives priority to those repositories that have been
  * declared in the POM.
@@ -117,7 +116,7 @@ public class ProjectModelResolver
     public void addRepository( Repository repository )
         throws InvalidRepositoryException
     {
-         addRepository( repository, false );
+        addRepository( repository, false );
     }
 
     @Override
@@ -141,8 +140,8 @@ public class ProjectModelResolver
 
         if ( ProjectBuildingRequest.RepositoryMerging.REQUEST_DOMINANT.equals( repositoryMerging ) )
         {
-            repositories = remoteRepositoryManager.aggregateRepositories( session, repositories, newRepositories,
-                                                                          true );
+            repositories =
+                remoteRepositoryManager.aggregateRepositories( session, repositories, newRepositories, true );
         }
         else
         {
@@ -155,10 +154,10 @@ public class ProjectModelResolver
 
     private static void removeMatchingRepository( Iterable<RemoteRepository> repositories, final String id )
     {
-        Iterator iterator = repositories.iterator( );
+        Iterator iterator = repositories.iterator();
         while ( iterator.hasNext() )
         {
-            RemoteRepository next =  ( RemoteRepository ) iterator.next();
+            RemoteRepository next = (RemoteRepository) iterator.next();
             if ( next.getId().equals( id ) )
             {
                 iterator.remove();
@@ -171,7 +170,7 @@ public class ProjectModelResolver
         return new ProjectModelResolver( this );
     }
 
-    public Source resolveModel(String groupId, String artifactId, String version )
+    public Source resolveModel( String groupId, String artifactId, String version )
         throws UnresolvableModelException
     {
         File pomFile = null;
@@ -203,13 +202,13 @@ public class ProjectModelResolver
     }
 
     @Override
-    public Source resolveModel(final Parent parent )
+    public Source resolveModel( final Parent parent )
         throws UnresolvableModelException
     {
         try
         {
-            final Artifact artifact = new DefaultArtifact( parent.getGroupId(), parent.getArtifactId(), "", "pom",
-                                                           parent.getVersion() );
+            final Artifact artifact =
+                new DefaultArtifact( parent.getGroupId(), parent.getArtifactId(), "", "pom", parent.getVersion() );
 
             final VersionRangeRequest versionRangeRequest = new VersionRangeRequest( artifact, repositories, context );
             versionRangeRequest.setTrace( trace );
@@ -218,22 +217,24 @@ public class ProjectModelResolver
 
             if ( versionRangeResult.getHighestVersion() == null )
             {
-                throw new UnresolvableModelException(
-                    String.format( "No versions matched the requested parent version range '%s'",
-                                   parent.getVersion() ),
-                    parent.getGroupId(), parent.getArtifactId(), parent.getVersion() );
+                throw new UnresolvableModelException( 
+                                  String.format( "No versions matched the requested parent version range '%s'",
+                                                                     parent.getVersion() ),
+                                                      parent.getGroupId(), parent.getArtifactId(),
+                                                      parent.getVersion() );
 
             }
 
             if ( versionRangeResult.getVersionConstraint() != null
-                     && versionRangeResult.getVersionConstraint().getRange() != null
-                     && versionRangeResult.getVersionConstraint().getRange().getUpperBound() == null )
+                && versionRangeResult.getVersionConstraint().getRange() != null
+                && versionRangeResult.getVersionConstraint().getRange().getUpperBound() == null )
             {
                 // Message below is checked for in the MNG-2199 core IT.
-                throw new UnresolvableModelException(
-                    String.format( "The requested parent version range '%s' does not specify an upper bound",
-                                   parent.getVersion() ),
-                    parent.getGroupId(), parent.getArtifactId(), parent.getVersion() );
+                throw new UnresolvableModelException( 
+                              String.format( "The requested parent version range '%s' does not specify an upper bound",
+                                                                     parent.getVersion() ),
+                                                      parent.getGroupId(), parent.getArtifactId(),
+                                                      parent.getVersion() );
 
             }
 
@@ -250,7 +251,7 @@ public class ProjectModelResolver
     }
 
     @Override
-    public Source resolveModel(final Dependency dependency )
+    public Source resolveModel( final Dependency dependency )
         throws UnresolvableModelException
     {
         try
@@ -265,22 +266,24 @@ public class ProjectModelResolver
 
             if ( versionRangeResult.getHighestVersion() == null )
             {
-                throw new UnresolvableModelException(
-                    String.format( "No versions matched the requested dependency version range '%s'",
-                                   dependency.getVersion() ),
-                    dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion() );
+                throw new UnresolvableModelException( 
+                                      String.format( "No versions matched the requested dependency version range '%s'",
+                                                                     dependency.getVersion() ),
+                                                      dependency.getGroupId(), dependency.getArtifactId(),
+                                                      dependency.getVersion() );
 
             }
 
             if ( versionRangeResult.getVersionConstraint() != null
-                     && versionRangeResult.getVersionConstraint().getRange() != null
-                     && versionRangeResult.getVersionConstraint().getRange().getUpperBound() == null )
+                && versionRangeResult.getVersionConstraint().getRange() != null
+                && versionRangeResult.getVersionConstraint().getRange().getUpperBound() == null )
             {
                 // Message below is checked for in the MNG-4463 core IT.
-                throw new UnresolvableModelException(
-                    String.format( "The requested dependency version range '%s' does not specify an upper bound",
-                                   dependency.getVersion() ),
-                    dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion() );
+                throw new UnresolvableModelException( 
+                          String.format( "The requested dependency version range '%s' does not specify an upper bound",
+                                                                     dependency.getVersion() ),
+                                                      dependency.getGroupId(), dependency.getArtifactId(),
+                                                      dependency.getVersion() );
 
             }
 

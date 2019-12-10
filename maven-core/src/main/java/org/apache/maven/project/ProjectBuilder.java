@@ -74,10 +74,9 @@ public interface ProjectBuilder
      * @param request The project building request that holds further parameters, must not be {@code null}.
      * @return The result of the project building, never {@code null}.
      * @throws ProjectBuildingException If the project descriptor could not be successfully built.
-     *
      * @see org.apache.maven.model.building.ModelSource2
      */
-    ProjectBuildingResult build(Source modelSource, ProjectBuildingRequest request )
+    ProjectBuildingResult build( Source modelSource, ProjectBuildingRequest request )
         throws ProjectBuildingException;
 
     /**

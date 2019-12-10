@@ -43,7 +43,7 @@ public interface ModelResolver
      * @return The source of the requested POM, never {@code null}.
      * @throws UnresolvableModelException If the POM could not be resolved from any configured repository.
      */
-    Source resolveModel(String groupId, String artifactId, String version )
+    Source resolveModel( String groupId, String artifactId, String version )
         throws UnresolvableModelException;
 
     /**
@@ -51,17 +51,14 @@ public interface ModelResolver
      * <p>
      * Unlike the {@link #resolveModel(java.lang.String, java.lang.String, java.lang.String)} method, this method
      * supports version ranges and updates the given {@code parent} instance to match the returned {@code ModelSource}.
-     * If {@code parent} declares a version range, the version corresponding to the returned {@code ModelSource} will
-     * be set on the given {@code parent}.
+     * If {@code parent} declares a version range, the version corresponding to the returned {@code ModelSource} will be
+     * set on the given {@code parent}.
      * </p>
      *
      * @param parent The parent coordinates to resolve, must not be {@code null}.
-     *
      * @return The source of the requested POM, never {@code null}.
-     *
      * @throws UnresolvableModelException If the POM could not be resolved from any configured repository.
      * @since 3.2.2
-     *
      * @see Parent#clone()
      */
     Source resolveModel( Parent parent )
@@ -77,12 +74,9 @@ public interface ModelResolver
      * </p>
      *
      * @param dependency The dependency coordinates to resolve, must not be {@code null}.
-     *
      * @return The source of the requested POM, never {@code null}.
-     *
      * @throws UnresolvableModelException If the POM could not be resolved from any configured repository.
      * @since 3.5.0
-     *
      * @see Dependency#clone()
      */
     Source resolveModel( Dependency dependency )
@@ -102,16 +96,15 @@ public interface ModelResolver
     /**
      * Adds a repository to use for subsequent resolution requests. The order in which repositories are added matters,
      * repositories that were added first should also be searched first. When multiple repositories with the same
-     * identifier are added, then the value of the replace argument is determines the behaviour.
-     *
-     * If replace is false than any existing repository with the same Id will remain in use. If replace
-     * is true the new repository replaces the original.
+     * identifier are added, then the value of the replace argument is determines the behaviour. If replace is false
+     * than any existing repository with the same Id will remain in use. If replace is true the new repository replaces
+     * the original.
      *
      * @param repository The repository to add to the internal search chain, must not be {@code null}.
      * @throws InvalidRepositoryException If the repository could not be added (e.g. due to invalid URL or layout).
      */
     void addRepository( Repository repository, boolean replace )
-            throws InvalidRepositoryException;
+        throws InvalidRepositoryException;
 
     /**
      * Clones this resolver for usage in a forked resolution process. In general, implementors need not provide a deep

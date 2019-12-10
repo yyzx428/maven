@@ -160,7 +160,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public Source resolveModel(String groupId, String artifactId, String version )
+    public Source resolveModel( String groupId, String artifactId, String version )
         throws UnresolvableModelException
     {
         Artifact pomArtifact = new DefaultArtifact( groupId, artifactId, "", "pom", version );
@@ -182,7 +182,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public Source resolveModel(final Parent parent )
+    public Source resolveModel( final Parent parent )
         throws UnresolvableModelException
     {
         try
@@ -230,7 +230,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public Source resolveModel(final Dependency dependency )
+    public Source resolveModel( final Dependency dependency )
         throws UnresolvableModelException
     {
         try

@@ -821,8 +821,8 @@ public class DefaultModelBuilder
         return interpolatedModel;
     }
 
-    private ModelData readParent(Model childModel, Source childSource, ModelBuildingRequest request,
-                                 DefaultModelProblemCollector problems )
+    private ModelData readParent( Model childModel, Source childSource, ModelBuildingRequest request,
+                                  DefaultModelProblemCollector problems )
         throws ModelBuildingException
     {
         ModelData parentData;

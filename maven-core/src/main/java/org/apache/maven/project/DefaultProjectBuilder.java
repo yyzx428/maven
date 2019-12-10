@@ -132,11 +132,11 @@ public class DefaultProjectBuilder
     }
 
     @Override
-    public ProjectBuildingResult build(Source modelSource, ProjectBuildingRequest request )
+    public ProjectBuildingResult build( Source modelSource, ProjectBuildingRequest request )
         throws ProjectBuildingException
     {
         return build( null, modelSource,
-                 new InternalConfig( request, null, useGlobalModelCache() ? getModelCache() : null ) );
+                      new InternalConfig( request, null, useGlobalModelCache() ? getModelCache() : null ) );
     }
 
     private ProjectBuildingResult build( File pomFile, Source modelSource, InternalConfig config )
