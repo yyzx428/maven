@@ -27,6 +27,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
+/**
+ * Interface as a test template for all model tests.
+ *
+ * @author Karl Heinz Marbaise
+ */
 @DisplayNameGeneration( ModelTestInterface.NameGenerator.class )
 interface ModelTestInterface< T >
 {
