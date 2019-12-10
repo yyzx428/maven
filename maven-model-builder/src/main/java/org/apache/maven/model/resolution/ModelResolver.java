@@ -19,10 +19,10 @@ package org.apache.maven.model.resolution;
  * under the License.
  */
 
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Parent;
 import org.apache.maven.model.Repository;
-import org.apache.maven.model.building.ModelSource;
 
 /**
  * Resolves a POM from its coordinates. During the build process, the
@@ -43,7 +43,7 @@ public interface ModelResolver
      * @return The source of the requested POM, never {@code null}.
      * @throws UnresolvableModelException If the POM could not be resolved from any configured repository.
      */
-    ModelSource resolveModel( String groupId, String artifactId, String version )
+    Source resolveModel(String groupId, String artifactId, String version )
         throws UnresolvableModelException;
 
     /**
@@ -64,7 +64,7 @@ public interface ModelResolver
      *
      * @see Parent#clone()
      */
-    ModelSource resolveModel( Parent parent )
+    Source resolveModel( Parent parent )
         throws UnresolvableModelException;
 
     /**
@@ -85,7 +85,7 @@ public interface ModelResolver
      *
      * @see Dependency#clone()
      */
-    ModelSource resolveModel( Dependency dependency )
+    Source resolveModel( Dependency dependency )
         throws UnresolvableModelException;
 
     /**

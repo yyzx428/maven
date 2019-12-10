@@ -19,24 +19,17 @@ package org.apache.maven.project;
  * under the License.
  */
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
-
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.InvalidRepositoryException;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.resolver.ArtifactNotFoundException;
 import org.apache.maven.artifact.resolver.ArtifactResolutionException;
+import org.apache.maven.building.UrlSource;
 import org.apache.maven.execution.MavenExecutionRequest;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.building.ModelBuildingException;
 import org.apache.maven.model.building.ModelBuildingRequest;
-import org.apache.maven.model.building.ModelSource;
-import org.apache.maven.model.building.UrlModelSource;
 import org.apache.maven.plugin.LegacySupport;
 import org.apache.maven.profiles.ProfileManager;
 import org.apache.maven.properties.internal.EnvironmentUtils;
@@ -44,6 +37,12 @@ import org.apache.maven.repository.RepositorySystem;
 import org.apache.maven.wagon.events.TransferListener;
 import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.component.annotations.Requirement;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
 
 /**
  */
@@ -269,7 +268,7 @@ public class DefaultMavenProjectBuilder
         request.setProcessPlugins( false );
         request.setValidationLevel( ModelBuildingRequest.VALIDATION_LEVEL_MINIMAL );
 
-        ModelSource modelSource = new UrlModelSource( getClass().getResource( "standalone.xml" ) );
+        UrlSource modelSource = new UrlSource( getClass().getResource( "standalone.xml" ) );
 
         MavenProject project = projectBuilder.build( modelSource, request ).getProject();
         project.setExecutionRoot( true );

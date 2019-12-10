@@ -19,20 +19,6 @@ package org.apache.maven.project;
  * under the License.
  */
 
-import java.io.File;
-import java.io.IOException;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.apache.maven.RepositoryUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.InvalidArtifactRTException;
@@ -40,6 +26,7 @@ import org.apache.maven.artifact.InvalidRepositoryException;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.repository.LegacyLocalRepositoryManager;
 import org.apache.maven.bridge.MavenRepositorySystem;
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.DependencyManagement;
@@ -75,6 +62,20 @@ import org.eclipse.aether.repository.RemoteRepository;
 import org.eclipse.aether.repository.WorkspaceRepository;
 import org.eclipse.aether.resolution.ArtifactRequest;
 import org.eclipse.aether.resolution.ArtifactResult;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * DefaultProjectBuilder
@@ -131,14 +132,14 @@ public class DefaultProjectBuilder
     }
 
     @Override
-    public ProjectBuildingResult build( ModelSource modelSource, ProjectBuildingRequest request )
+    public ProjectBuildingResult build(Source modelSource, ProjectBuildingRequest request )
         throws ProjectBuildingException
     {
         return build( null, modelSource,
                  new InternalConfig( request, null, useGlobalModelCache() ? getModelCache() : null ) );
     }
 
-    private ProjectBuildingResult build( File pomFile, ModelSource modelSource, InternalConfig config )
+    private ProjectBuildingResult build( File pomFile, Source modelSource, InternalConfig config )
         throws ProjectBuildingException
     {
         ClassLoader oldContextClassLoader = Thread.currentThread().getContextClassLoader();

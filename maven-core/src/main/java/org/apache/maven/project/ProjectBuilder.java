@@ -19,11 +19,11 @@ package org.apache.maven.project;
  * under the License.
  */
 
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.building.Source;
+
 import java.io.File;
 import java.util.List;
-
-import org.apache.maven.artifact.Artifact;
-import org.apache.maven.model.building.ModelSource;
 
 /**
  * Builds in-memory descriptions of projects.
@@ -77,7 +77,7 @@ public interface ProjectBuilder
      *
      * @see org.apache.maven.model.building.ModelSource2
      */
-    ProjectBuildingResult build( ModelSource modelSource, ProjectBuildingRequest request )
+    ProjectBuildingResult build(Source modelSource, ProjectBuildingRequest request )
         throws ProjectBuildingException;
 
     /**

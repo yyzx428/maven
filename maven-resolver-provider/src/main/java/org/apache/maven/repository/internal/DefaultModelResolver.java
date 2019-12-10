@@ -19,19 +19,11 @@ package org.apache.maven.repository.internal;
  * under the License.
  */
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Parent;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.building.FileModelSource;
-import org.apache.maven.model.building.ModelSource;
 import org.apache.maven.model.resolution.InvalidRepositoryException;
 import org.apache.maven.model.resolution.ModelResolver;
 import org.apache.maven.model.resolution.UnresolvableModelException;
@@ -48,6 +40,14 @@ import org.eclipse.aether.resolution.ArtifactResolutionException;
 import org.eclipse.aether.resolution.VersionRangeRequest;
 import org.eclipse.aether.resolution.VersionRangeResolutionException;
 import org.eclipse.aether.resolution.VersionRangeResult;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A model resolver to assist building of dependency POMs. This resolver gives priority to those repositories that have
@@ -160,7 +160,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public ModelSource resolveModel( String groupId, String artifactId, String version )
+    public Source resolveModel(String groupId, String artifactId, String version )
         throws UnresolvableModelException
     {
         Artifact pomArtifact = new DefaultArtifact( groupId, artifactId, "", "pom", version );
@@ -182,7 +182,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public ModelSource resolveModel( final Parent parent )
+    public Source resolveModel(final Parent parent )
         throws UnresolvableModelException
     {
         try
@@ -230,7 +230,7 @@ class DefaultModelResolver
     }
 
     @Override
-    public ModelSource resolveModel( final Dependency dependency )
+    public Source resolveModel(final Dependency dependency )
         throws UnresolvableModelException
     {
         try

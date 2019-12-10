@@ -19,11 +19,14 @@ package org.apache.maven.project;
  * under the License.
  */
 
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.hasKey;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import com.google.common.io.Files;
+import org.apache.maven.AbstractCoreMavenComponentTestCase;
+import org.apache.maven.artifact.InvalidArtifactRTException;
+import org.apache.maven.building.Source;
+import org.apache.maven.execution.MavenSession;
+import org.apache.maven.model.building.FileModelSource;
+import org.apache.maven.model.building.ModelBuildingRequest;
+import org.apache.maven.shared.utils.io.FileUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -31,15 +34,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.maven.AbstractCoreMavenComponentTestCase;
-import org.apache.maven.artifact.InvalidArtifactRTException;
-import org.apache.maven.execution.MavenSession;
-import org.apache.maven.model.building.FileModelSource;
-import org.apache.maven.model.building.ModelBuildingRequest;
-import org.apache.maven.model.building.ModelSource;
-import org.apache.maven.shared.utils.io.FileUtils;
-
-import com.google.common.io.Files;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 public class ProjectBuilderTest
     extends AbstractCoreMavenComponentTestCase
@@ -74,7 +70,7 @@ public class ProjectBuilderTest
         MavenSession mavenSession = createMavenSession( pomFile );
         ProjectBuildingRequest configuration = new DefaultProjectBuildingRequest();
         configuration.setRepositorySession( mavenSession.getRepositorySession() );
-        ModelSource modelSource = new FileModelSource( pomFile );
+        Source modelSource = new FileModelSource( pomFile );
         ProjectBuildingResult result =
             lookup( org.apache.maven.project.ProjectBuilder.class ).build( modelSource, configuration );
 

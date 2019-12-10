@@ -19,6 +19,8 @@ package org.apache.maven.settings.building;
  * under the License.
  */
 
+import org.apache.maven.building.Source;
+
 import java.io.File;
 import java.util.Properties;
 
@@ -35,9 +37,9 @@ public class DefaultSettingsBuildingRequest
 
     private File userSettingsFile;
 
-    private SettingsSource globalSettingsSource;
+    private Source globalSettingsSource;
 
-    private SettingsSource userSettingsSource;
+    private Source userSettingsSource;
 
     private Properties systemProperties;
 
@@ -58,13 +60,13 @@ public class DefaultSettingsBuildingRequest
     }
 
     @Override
-    public SettingsSource getGlobalSettingsSource()
+    public Source getGlobalSettingsSource()
     {
         return globalSettingsSource;
     }
 
     @Override
-    public DefaultSettingsBuildingRequest setGlobalSettingsSource( SettingsSource globalSettingsSource )
+    public DefaultSettingsBuildingRequest setGlobalSettingsSource( Source globalSettingsSource )
     {
         this.globalSettingsSource = globalSettingsSource;
 
@@ -86,13 +88,13 @@ public class DefaultSettingsBuildingRequest
     }
 
     @Override
-    public SettingsSource getUserSettingsSource()
+    public Source getUserSettingsSource()
     {
         return userSettingsSource;
     }
 
     @Override
-    public DefaultSettingsBuildingRequest setUserSettingsSource( SettingsSource userSettingsSource )
+    public DefaultSettingsBuildingRequest setUserSettingsSource( Source userSettingsSource )
     {
         this.userSettingsSource = userSettingsSource;
 

@@ -23,6 +23,7 @@ package org.apache.maven.model.building;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import org.apache.maven.artifact.versioning.InvalidVersionSpecificationException;
 import org.apache.maven.artifact.versioning.VersionRange;
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Activation;
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Dependency;
@@ -63,6 +64,9 @@ import org.codehaus.plexus.interpolation.MapBasedValueSource;
 import org.codehaus.plexus.interpolation.StringSearchInterpolator;
 import org.eclipse.sisu.Nullable;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,10 +78,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
 
 import static org.apache.maven.model.building.Result.error;
 import static org.apache.maven.model.building.Result.newResult;
@@ -518,7 +518,7 @@ public class DefaultModelBuilder
         }
     }
 
-    private Model readModel( ModelSource modelSource, File pomFile, ModelBuildingRequest request,
+    private Model readModel( Source modelSource, File pomFile, ModelBuildingRequest request,
                              DefaultModelProblemCollector problems )
         throws ModelBuildingException
     {
@@ -821,8 +821,8 @@ public class DefaultModelBuilder
         return interpolatedModel;
     }
 
-    private ModelData readParent( Model childModel, ModelSource childSource, ModelBuildingRequest request,
-                                  DefaultModelProblemCollector problems )
+    private ModelData readParent(Model childModel, Source childSource, ModelBuildingRequest request,
+                                 DefaultModelProblemCollector problems )
         throws ModelBuildingException
     {
         ModelData parentData;
@@ -861,7 +861,7 @@ public class DefaultModelBuilder
                 if ( pomFile != null )
                 {
                     FileModelSource pomSource = new FileModelSource( pomFile );
-                    ModelSource expectedParentSource = getParentPomFile( childModel, childSource );
+                    Source expectedParentSource = getParentPomFile( childModel, childSource );
 
                     if ( expectedParentSource == null || ( expectedParentSource instanceof ModelSource2
                         && !pomSource.equals(  expectedParentSource ) ) )
@@ -889,12 +889,12 @@ public class DefaultModelBuilder
         return parentData;
     }
 
-    private ModelData readParentLocally( Model childModel, ModelSource childSource, ModelBuildingRequest request,
+    private ModelData readParentLocally( Model childModel, Source childSource, ModelBuildingRequest request,
                                          DefaultModelProblemCollector problems )
         throws ModelBuildingException
     {
         final Parent parent = childModel.getParent();
-        final ModelSource candidateSource;
+        final Source candidateSource;
         final Model candidateModel;
         final WorkspaceModelResolver resolver = request.getWorkspaceModelResolver();
         if ( resolver == null )
@@ -1029,7 +1029,7 @@ public class DefaultModelBuilder
         return parentData;
     }
 
-    private ModelSource getParentPomFile( Model childModel, ModelSource source )
+    private Source getParentPomFile( Model childModel, Source source )
     {
         if ( !( source instanceof ModelSource2 ) )
         {
@@ -1064,7 +1064,7 @@ public class DefaultModelBuilder
                                                ModelProblemUtils.toId( groupId, artifactId, version ),
                                                ModelProblemUtils.toSourceHint( childModel ) ) );
 
-        ModelSource modelSource;
+        Source modelSource;
         try
         {
             modelSource = modelResolver.resolveModel( parent );
@@ -1259,7 +1259,7 @@ public class DefaultModelBuilder
                 // no workspace resolver or workspace resolver returned null (i.e. model not in workspace)
                 if ( importModel == null )
                 {
-                    final ModelSource importSource;
+                    final Source importSource;
                     try
                     {
                         importSource = modelResolver.resolveModel( groupId, artifactId, version );

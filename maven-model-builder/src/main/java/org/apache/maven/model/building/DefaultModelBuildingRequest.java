@@ -19,16 +19,17 @@ package org.apache.maven.model.building;
  * under the License.
  */
 
+import org.apache.maven.building.Source;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.Profile;
+import org.apache.maven.model.resolution.ModelResolver;
+import org.apache.maven.model.resolution.WorkspaceModelResolver;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-
-import org.apache.maven.model.Model;
-import org.apache.maven.model.Profile;
-import org.apache.maven.model.resolution.ModelResolver;
-import org.apache.maven.model.resolution.WorkspaceModelResolver;
 
 /**
  * Collects settings that control building of effective models.
@@ -43,7 +44,7 @@ public class DefaultModelBuildingRequest
 
     private File pomFile;
 
-    private ModelSource modelSource;
+    private Source modelSource;
 
     private int validationLevel = VALIDATION_LEVEL_STRICT;
 
@@ -118,7 +119,7 @@ public class DefaultModelBuildingRequest
     }
 
     @Override
-    public synchronized ModelSource getModelSource()
+    public synchronized Source getModelSource()
     {
         if ( modelSource == null && pomFile != null )
         {
@@ -128,7 +129,7 @@ public class DefaultModelBuildingRequest
     }
 
     @Override
-    public DefaultModelBuildingRequest setModelSource( ModelSource modelSource )
+    public DefaultModelBuildingRequest setModelSource( Source modelSource )
     {
         this.modelSource = modelSource;
 

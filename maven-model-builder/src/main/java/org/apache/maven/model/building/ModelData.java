@@ -19,10 +19,11 @@ package org.apache.maven.model.building;
  * under the License.
  */
 
-import java.util.List;
-
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Profile;
+
+import java.util.List;
 
 /**
  * Holds a model along with some auxiliary information. This internal utility class assists the model builder during POM
@@ -32,7 +33,7 @@ import org.apache.maven.model.Profile;
  */
 class ModelData
 {
-    private final ModelSource source;
+    private final Source source;
 
     private Model model;
 
@@ -51,7 +52,7 @@ class ModelData
      *
      * @param model The model to wrap, may be {@code null}.
      */
-    ModelData( ModelSource source, Model model )
+    ModelData( Source source, Model model )
     {
         this.source = source;
         this.model = model;
@@ -65,7 +66,7 @@ class ModelData
      * @param artifactId The effective artifact identifier of the model, may be {@code null}.
      * @param version The effective version of the model, may be {@code null}.
      */
-    ModelData( ModelSource source, Model model, String groupId, String artifactId, String version )
+    ModelData( Source source, Model model, String groupId, String artifactId, String version )
     {
         this.source = source;
         this.model = model;
@@ -74,7 +75,7 @@ class ModelData
         setVersion( version );
     }
 
-    public ModelSource getSource()
+    public Source getSource()
     {
         return source;
     }

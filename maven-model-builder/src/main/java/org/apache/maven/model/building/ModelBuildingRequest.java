@@ -19,15 +19,16 @@ package org.apache.maven.model.building;
  * under the License.
  */
 
-import java.io.File;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
-
+import org.apache.maven.building.Source;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Profile;
 import org.apache.maven.model.resolution.ModelResolver;
 import org.apache.maven.model.resolution.WorkspaceModelResolver;
+
+import java.io.File;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * Collects settings that control the building of effective models.
@@ -83,16 +84,16 @@ public interface ModelBuildingRequest
      *
      * @return The source of the POM or {@code null} if not set.
      */
-    ModelSource getModelSource();
+    Source getModelSource();
 
     /**
-     * Sets the source of the POM to process. Eventually, either {@link #setModelSource(ModelSource)} or
+     * Sets the source of the POM to process. Eventually, either {@link #setModelSource(Source)} or
      * {@link #setPomFile(File)} must be set.
      *
      * @param modelSource The source of the POM to process, may be {@code null}.
      * @return This request, never {@code null}.
      */
-    ModelBuildingRequest setModelSource( ModelSource modelSource );
+    ModelBuildingRequest setModelSource( Source modelSource );
 
     /**
      * Gets the POM file of the project to build.
@@ -106,7 +107,7 @@ public interface ModelBuildingRequest
      * Sets the POM file of the project to build. Note that providing the path to a POM file via this method will make
      * the model builder operate in project mode. This mode is meant for effective models that are employed during the
      * build process of a local project. Hence the effective model will support the notion of a project directory. To
-     * build the model for a POM from the repository, use {@link #setModelSource(ModelSource)} in combination with a
+     * build the model for a POM from the repository, use {@link #setModelSource(Source)} in combination with a
      * {@link FileModelSource} instead.
      *
      * @param pomFile The POM file of the project to build the effective model for, may be {@code null} to build the

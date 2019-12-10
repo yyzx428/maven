@@ -19,6 +19,8 @@ package org.apache.maven.settings.building;
  * under the License.
  */
 
+import org.apache.maven.building.Source;
+
 import java.io.File;
 import java.util.Properties;
 
@@ -51,7 +53,7 @@ public interface SettingsBuildingRequest
      *
      * @return The global settings source or {@code null} if none.
      */
-    SettingsSource getGlobalSettingsSource();
+    Source getGlobalSettingsSource();
 
     /**
      * Sets the global settings source. If both user settings and a global settings are given, the user settings take
@@ -60,7 +62,7 @@ public interface SettingsBuildingRequest
      * @param globalSettingsSource The global settings source, may be {@code null} to disable global settings.
      * @return This request, never {@code null}.
      */
-    SettingsBuildingRequest setGlobalSettingsSource( SettingsSource globalSettingsSource );
+    SettingsBuildingRequest setGlobalSettingsSource( Source globalSettingsSource );
 
     /**
      * Gets the user settings file.
@@ -83,7 +85,7 @@ public interface SettingsBuildingRequest
      *
      * @return The user settings source or {@code null} if none.
      */
-    SettingsSource getUserSettingsSource();
+    Source getUserSettingsSource();
 
     /**
      * Sets the user settings source. If both user settings and a global settings are given, the user settings take
@@ -92,7 +94,7 @@ public interface SettingsBuildingRequest
      * @param userSettingsSource The user settings source, may be {@code null} to disable user settings.
      * @return This request, never {@code null}.
      */
-    SettingsBuildingRequest setUserSettingsSource( SettingsSource userSettingsSource );
+    SettingsBuildingRequest setUserSettingsSource( Source userSettingsSource );
 
     /**
      * Gets the system properties to use for interpolation. The system properties are collected from the runtime

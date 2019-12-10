@@ -19,6 +19,8 @@ package org.apache.maven.model.building;
  * under the License.
  */
 
+import org.apache.maven.building.Source;
+
 import java.net.URI;
 
 /**
@@ -32,7 +34,7 @@ import java.net.URI;
  * that the connection to the backing store remains active until request's {@link ModelCache} is discarded or flushed.
  */
 public interface ModelSource2
-    extends ModelSource
+    extends Source
 {
     /**
      * Returns model source identified by a path relative to this model source POM. Implementation <strong>MUST</strong>
