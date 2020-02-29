@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class ContributorTest implements ModelTestInterface< Contributor >
 {
+    @Override
+    public Class<Contributor> createValue()
+    {
+        return Contributor.class;
+    }
 }

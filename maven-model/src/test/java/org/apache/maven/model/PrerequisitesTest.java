@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class PrerequisitesTest implements ModelTestInterface< Prerequisites >
 {
+    @Override
+    public Class<Prerequisites> createValue()
+    {
+        return Prerequisites.class;
+    }
 }

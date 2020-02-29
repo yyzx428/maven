@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ProfileTest implements ModelTestInterface< Profile >
 {
 
+    @Override
+    public Class<Profile> createValue()
+    {
+        return Profile.class;
+    }
 }

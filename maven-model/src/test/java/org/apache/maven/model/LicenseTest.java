@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class LicenseTest implements ModelTestInterface< License >
 {
 
+    @Override
+    public Class<License> createValue()
+    {
+        return License.class;
+    }
 }

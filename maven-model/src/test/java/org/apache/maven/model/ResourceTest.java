@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class ResourceTest implements ModelTestInterface< Resource >
 {
+    @Override
+    public Class<Resource> createValue()
+    {
+        return Resource.class;
+    }
 }
 

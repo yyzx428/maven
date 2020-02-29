@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class SiteTest implements ModelTestInterface< Site >
 {
+    @Override
+    public Class<Site> createValue()
+    {
+        return Site.class;
+    }
 }

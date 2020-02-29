@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ModelTest implements ModelTestInterface< Model >
 {
 
+    @Override
+    public Class<Model> createValue()
+    {
+        return Model.class;
+    }
 }

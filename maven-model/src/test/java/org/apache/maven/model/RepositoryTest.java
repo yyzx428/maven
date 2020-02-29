@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class RepositoryTest implements ModelTestInterface< Repository >
 {
+    @Override
+    public Class<Repository> createValue()
+    {
+        return Repository.class;
+    }
 }
 

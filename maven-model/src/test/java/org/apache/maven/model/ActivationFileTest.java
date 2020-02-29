@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class ActivationFileTest implements ModelTestInterface< ActivationFile >
 {
+    @Override
+    public Class<ActivationFile> createValue()
+    {
+        return ActivationFile.class;
+    }
 }
 

@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class ReportingTest implements ModelTestInterface< Reporting >
 {
+    @Override
+    public Class<Reporting> createValue()
+    {
+        return Reporting.class;
+    }
 }

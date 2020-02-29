@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class PluginManagementTest implements ModelTestInterface< PluginManagement >
 {
+    @Override
+    public Class<PluginManagement> createValue()
+    {
+        return PluginManagement.class;
+    }
 }

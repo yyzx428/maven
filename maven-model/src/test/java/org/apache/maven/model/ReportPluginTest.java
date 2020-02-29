@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class ReportPluginTest implements ModelTestInterface< ReportPlugin >
 {
+    @Override
+    public Class<ReportPlugin> createValue()
+    {
+        return ReportPlugin.class;
+    }
 }

@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ExclusionTest implements ModelTestInterface< Exclusion >
 {
 
+    @Override
+    public Class<Exclusion> createValue()
+    {
+        return Exclusion.class;
+    }
 }

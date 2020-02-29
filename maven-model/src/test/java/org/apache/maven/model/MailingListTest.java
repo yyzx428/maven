@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class MailingListTest implements ModelTestInterface< MailingList >
 {
 
+    @Override
+    public Class<MailingList> createValue()
+    {
+        return MailingList.class;
+    }
 }

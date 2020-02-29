@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class DistributionManagementTest implements ModelTestInterface< DistributionManagement >
 {
 
+    @Override
+    public Class<DistributionManagement> createValue()
+    {
+        return DistributionManagement.class;
+    }
 }

@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ExtensionTest implements ModelTestInterface< Extension >
 {
 
+    @Override
+    public Class<Extension> createValue()
+    {
+        return Extension.class;
+    }
 }

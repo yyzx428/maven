@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class PluginContainerTest implements ModelTestInterface< PluginContainer >
 {
 
+    @Override
+    public Class<PluginContainer> createValue()
+    {
+        return PluginContainer.class;
+    }
 }

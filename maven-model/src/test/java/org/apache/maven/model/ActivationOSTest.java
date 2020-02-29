@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ActivationOSTest implements ModelTestInterface< ActivationOS >
 {
 
+    @Override
+    public Class<ActivationOS> createValue()
+    {
+        return ActivationOS.class;
+    }
 }

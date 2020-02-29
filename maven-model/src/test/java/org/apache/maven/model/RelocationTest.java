@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class RelocationTest implements ModelTestInterface< Relocation >
 {
+    @Override
+    public Class<Relocation> createValue()
+    {
+        return Relocation.class;
+    }
 }

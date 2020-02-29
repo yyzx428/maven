@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class DependencyManagementTest implements ModelTestInterface< DependencyManagement >
 {
 
+    @Override
+    public Class<DependencyManagement> createValue()
+    {
+        return DependencyManagement.class;
+    }
 }

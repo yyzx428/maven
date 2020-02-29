@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class DeveloperTest implements ModelTestInterface< Developer >
 {
 
+    @Override
+    public Class<Developer> createValue()
+    {
+        return Developer.class;
+    }
 }

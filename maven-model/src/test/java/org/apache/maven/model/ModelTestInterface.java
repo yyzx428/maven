@@ -35,32 +35,30 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 @DisplayNameGeneration( ModelTestInterface.NameGenerator.class )
 interface ModelTestInterface< T >
 {
-    @SuppressWarnings( "unchecked" )
-    default T createNewInstance(Class< ? > x) throws ReflectiveOperationException
-    {
-        return ( T ) x.getDeclaredConstructor().newInstance();
-    }
+
+    Class<T> createValue();
 
     @Test
     @DisplayName( "hashCode should not fail with null." )
     default void hashCodeNullSafe()
     {
-        assertThatCode( () -> createNewInstance( this.getClass() ).hashCode() ).doesNotThrowAnyException();
+        assertThatCode( () -> createValue().hashCode() ).doesNotThrowAnyException();
     }
 
     @Test
     @DisplayName( "equals should not fail with null." )
     default void equalsNullSafe() throws ReflectiveOperationException
     {
-        assertThat( createNewInstance( this.getClass() ).equals( null ) ).isFalse();
+        T newInstance = createValue().newInstance();
+        assertThat( newInstance.equals( null ) ).isFalse();
     }
 
     @Test
     @DisplayName( "equals should result in false for two different instances." )
     default void equalsSameToBeFalse() throws ReflectiveOperationException
     {
-        T firstInstance = createNewInstance( this.getClass() );
-        T secondInstance = createNewInstance( this.getClass() );
+        T firstInstance = createValue().newInstance();
+        T secondInstance = createValue().newInstance();
         assertThat( firstInstance.equals( secondInstance ) ).isFalse();
     }
 
@@ -68,7 +66,7 @@ interface ModelTestInterface< T >
     @DisplayName( "toString should not be null." )
     default void toStringNullSafe() throws ReflectiveOperationException
     {
-        assertThat( createNewInstance( this.getClass() ).toString() ).isNotNull();
+        assertThat( createValue().newInstance().toString() ).isNotNull();
     }
 
     /**

@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class OrganizationTest implements ModelTestInterface< Organization >
 {
+    @Override
+    public Class<Organization> createValue()
+    {
+        return Organization.class;
+    }
 }

@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class ActivationPropertyTest implements ModelTestInterface< ActivationProperty >
 {
+    @Override
+    public Class<ActivationProperty> createValue()
+    {
+        return ActivationProperty.class;
+    }
 }
 

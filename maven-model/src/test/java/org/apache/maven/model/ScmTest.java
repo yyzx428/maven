@@ -27,6 +27,11 @@ package org.apache.maven.model;
 class ScmTest implements ModelTestInterface< Scm >
 {
 
+    @Override
+    public Class<Scm> createValue()
+    {
+        return Scm.class;
+    }
 }
 
 

@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class IssueManagementTest implements ModelTestInterface< IssueManagement >
 {
 
+    @Override
+    public Class<IssueManagement> createValue()
+    {
+        return IssueManagement.class;
+    }
 }

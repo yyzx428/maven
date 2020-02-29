@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class NotifierTest implements ModelTestInterface< Notifier >
 {
+    @Override
+    public Class<Notifier> createValue()
+    {
+        return Notifier.class;
+    }
 }

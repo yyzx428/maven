@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class ReportSetTest implements ModelTestInterface< ReportSet >
 {
 
+    @Override
+    public Class<ReportSet> createValue()
+    {
+        return ReportSet.class;
+    }
 }

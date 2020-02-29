@@ -26,4 +26,9 @@ package org.apache.maven.model;
  */
 class ParentTest implements ModelTestInterface< Parent >
 {
+    @Override
+    public Class<Parent> createValue()
+    {
+        return Parent.class;
+    }
 }

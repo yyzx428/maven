@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class BuildTest implements ModelTestInterface< Build >
 {
+    @Override
+    public Class<Build> createValue()
+    {
+        return Build.class;
+    }
 }
 

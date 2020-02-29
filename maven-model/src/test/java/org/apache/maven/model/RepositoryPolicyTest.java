@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class RepositoryPolicyTest implements ModelTestInterface< RepositoryPolicy >
 {
 
+    @Override
+    public Class<RepositoryPolicy> createValue()
+    {
+        return RepositoryPolicy.class;
+    }
 }

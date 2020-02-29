@@ -26,5 +26,10 @@ package org.apache.maven.model;
  */
 class CiManagementTest implements ModelTestInterface< CiManagement >
 {
+    @Override
+    public Class<CiManagement> createValue()
+    {
+        return CiManagement.class;
+    }
 }
 

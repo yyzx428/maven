@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class DeploymentRepositoryTest implements ModelTestInterface< DeploymentRepository >
 {
 
+    @Override
+    public Class<DeploymentRepository> createValue()
+    {
+        return DeploymentRepository.class;
+    }
 }

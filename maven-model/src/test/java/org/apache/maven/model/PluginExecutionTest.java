@@ -27,4 +27,9 @@ package org.apache.maven.model;
 class PluginExecutionTest implements ModelTestInterface< PluginExecution >
 {
 
+    @Override
+    public Class<PluginExecution> createValue()
+    {
+        return PluginExecution.class;
+    }
 }
