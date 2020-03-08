@@ -30,18 +30,19 @@ import org.apache.maven.artifact.repository.ArtifactRepositoryPolicy;
 import org.apache.maven.eventspy.internal.EventSpyDispatcher;
 import org.apache.maven.model.Profile;
 import org.apache.maven.project.ProjectBuildingRequest;
-//
-// These settings values need to be removed and pushed down into a provider of configuration information
-//
 import org.apache.maven.settings.Mirror;
 import org.apache.maven.settings.Proxy;
 import org.apache.maven.settings.Server;
-//
 import org.apache.maven.toolchain.model.ToolchainModel;
 import org.codehaus.plexus.logging.Logger;
 import org.eclipse.aether.RepositoryCache;
 import org.eclipse.aether.repository.WorkspaceReader;
 import org.eclipse.aether.transfer.TransferListener;
+
+//
+// These settings values need to be removed and pushed down into a provider of configuration information
+//
+//
 
 /**
  * @author Jason van Zyl
@@ -92,7 +93,11 @@ public interface MavenExecutionRequest
 
     String CHECKSUM_POLICY_WARN = ArtifactRepositoryPolicy.CHECKSUM_POLICY_WARN;
 
-    public enum FailLevel {
+    /**
+     * FailLevel enumeration.
+     */
+    enum FailLevel
+    {
         /**
          * The default level on which Maven will fail the build.
          */
