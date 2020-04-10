@@ -1326,16 +1326,6 @@ public class MavenCli
         boolean quiet = cliRequest.quiet;
         boolean showErrors = cliRequest.showErrors;
 
-        String[] deprecatedOptions = { "up", "npu", "cpu", "npr" };
-        for ( String deprecatedOption : deprecatedOptions )
-        {
-            if ( commandLine.hasOption( deprecatedOption ) )
-            {
-                slf4jLogger.warn( "Command line option -{} is deprecated and will be removed in future Maven versions.",
-                        deprecatedOption );
-            }
-        }
-
         // ----------------------------------------------------------------------
         // Now that we have everything that we need we will fire up plexus and
         // bring the maven component to life for use.
