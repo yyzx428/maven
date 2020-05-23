@@ -212,7 +212,28 @@ public final class SettingsUtils
             }
         }
 
+        List<Dependency> dependencies = settingsProfile.getDependencies();
+        if ( dependencies != null )
+        {
+            for ( Dependency dependency : dependencies )
+            {
+                profile.addDependency( convertFromSettingsDependency( dependency ) );
+            }
+        }
+
         return profile;
+    }
+
+    private static org.apache.maven.model.Dependency convertFromSettingsDependency( Dependency dependency )
+    {
+        org.apache.maven.model.Dependency dep = new org.apache.maven.model.Dependency();
+
+        dep.setGroupId( dependency.getGroupId( ) );
+        dep.setArtifactId( dependency.getArtifactId( ) );
+        dep.setVersion( dependency.getVersion( ) );
+        dep.setScope( "compile" );
+
+        return dep;
     }
 
     /**
